@@ -13,7 +13,6 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.17.2",
-    "express": "^4.15.3",
-    "useful-string": "0.0.2"
+    "express": "^4.15.3"
   }
 }

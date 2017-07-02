@@ -1,10 +1,9 @@
-const string = require('useful-string');
 const express = require('express');
 const router = express.Router();
 
 let bookStorage = [
     {
-        id: string.guid(),
+        id: 0,
         name: "Harry Potter e a Pedra Filosofal",
         author: "J. K. Rowling",
         year: 2000,
@@ -12,6 +11,26 @@ let bookStorage = [
         gender: "Infanto-Juvenil",
         synopsis: "Harry Potter é um garoto comum que vive num armário...",
         price: 30.00
+    },
+     {
+        id: 0,
+        name: "Harry Potter e a Câmara Secreta",
+        author: "J. K. Rowling",
+        year: 2000,
+        publishingHouse: "Rocco",
+        gender: "Infanto-Juvenil",
+        synopsis: "Depois de férias aborrecidas na casa dos tios trouxas...",
+        price: 29.00
+    },
+    {
+        id: 0,
+        name: "Harry Potter e o Prisioneiro de Azkaban",
+        author: "J. K. Rowling",
+        year: 2000,
+        publishingHouse: "Rocco",
+        gender: "Infanto-Juvenil",
+        synopsis: "Juntamente com Rony e Hermione, seus melhores amigos, Harry Potter...",
+        price: 32.00
     }
 ];
 

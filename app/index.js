@@ -13,5 +13,8 @@ app.use('/api/users', require('./api/userAPI'));
 // Book API
 app.use('/api/books', require('./api/bookAPI'));
 
+// Purchase API
+app.use('/api/purchases', require('./api/purchaseAPI'));
+
 // server startup
 app.listen(port, () => console.log(`Server started at http://${host}:${port}`));

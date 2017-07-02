@@ -1,10 +1,9 @@
-const string = require('useful-string');
 const express = require('express');
 const router = express.Router();
 
 let userStorage = [
     {
-        id: string.guid(),
+        id: 0,
         name: "Lydia Braga",
         email: "lydiaccb@hotmail.com",
         cpf: "105.906.326-39",
@@ -12,6 +11,26 @@ let userStorage = [
         number: 103,
         neighborhood: "Jr Santo Antonio",
         password: "12345"
+    },
+    {
+        id: 0,
+        name: "Chris Lima",
+        email: "chris_awake@hotmail.com",
+        cpf: "104.856.386-35",
+        address: "R. Dr. João Carneiro da Silva",
+        number: 103,
+        neighborhood: "Jr Santo Antonio",
+        password: "LydiaAmor"
+    },
+    {
+        id: 0,
+        name: "Ana Letícia",
+        email: "ana.chavi@hotmail.com",
+        cpf: "108.478.856-29",
+        address: "R. Dr. João Carneiro da Silva",
+        number: 103,
+        neighborhood: "Jr Santo Antonio",
+        password: "123456"
     }
 ];
 
@@ -31,7 +50,7 @@ router.get('/:id', (request, response) => {
 
 router.post('/', (request, response) => {
     let newUser = {
-        id: string.guid(),
+        id: userStorage.length,
         name: request.body.name,
         email: request.body.email,
         cpf: request.body.cpf,
