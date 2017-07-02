@@ -7,8 +7,11 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-// Subscriber API
+// User API
 app.use('/api/users', require('.userAPI'));
+
+// Book API
+app.use('/api/books', require('.bookAPI'));
 
 // server startup
 app.listen(port, () => console.log(`Server started at http://${host}:${port}`));
