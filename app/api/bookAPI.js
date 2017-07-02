@@ -1,4 +1,4 @@
-const string = require('useful-strings');
+const string = require('useful-string');
 const express = require('express');
 const router = express.Router();
 
@@ -11,6 +11,7 @@ let bookStorage = [
         publishingHouse: "Rocco",
         gender: "Infanto-Juvenil",
         synopsis: "Harry Potter é um garoto comum que vive num armário...",
+        price: 30.00
     }
 ];
 
@@ -19,9 +20,9 @@ router.get('/', (request, response) => {
 });
 
 router.get('/:id', (request, response) => {
-    let book = db.find(book => book.id == request.params.id);
+    let book = bookStorage.find(book => book.id == request.params.id);
 
-    if (user) {
+    if (book) {
         response.json(book);
     } else {
         response.status(404).send('Not Found!');
@@ -29,7 +30,7 @@ router.get('/:id', (request, response) => {
 });
 
 router.get('/gender/:gender', (request, response) => {
-    let books = db.filter(book => book.gender == request.params.gender);
+    let books = bookStorage.filter(book => book.gender == request.params.gender);
 
     if (books) {
         response.json(books);
@@ -39,9 +40,9 @@ router.get('/gender/:gender', (request, response) => {
 });
 
 router.delete('/:id', (request, response) => {
-    var bookIndex = db.findIndex(book => book.id == request.params.id);
-    if (userIndex != -1) {
-        db.splice(bookStorage, 1);
+    var bookIndex = bookStorage.findIndex(book => book.id == request.params.id);
+    if (bookIndex != -1) {
+        bookStorage.splice(bookIndex, 1);
         response.send('Book was removed from stock!');
     }
     else {

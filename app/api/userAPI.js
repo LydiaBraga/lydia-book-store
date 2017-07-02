@@ -1,4 +1,4 @@
-const string = require('useful-strings');
+const string = require('useful-string');
 const express = require('express');
 const router = express.Router();
 
@@ -20,7 +20,7 @@ router.get('/', (request, response) => {
 });
 
 router.get('/:id', (request, response) => {
-    let user = db.find(user => user.id == request.params.id);
+    let user = userStorage.find(user => user.id == request.params.id);
 
     if (user) {
         response.json(user);
@@ -41,7 +41,7 @@ router.post('/', (request, response) => {
         password: request.body.password
     };
 
-    db.push(newUser);
+    userStorage.push(newUser);
 
     response.status(201).json(newUser);
 });
@@ -65,9 +65,9 @@ router.put('/:id', (request, response) => {
 })
 
 router.delete('/:id', (request, response) => {
-    var userIndex = db.findIndex(user => user.id == request.params.id);
+    var userIndex = userStorage.findIndex(user => user.id == request.params.id);
     if (userIndex != -1) {
-        db.splice(userStorage, 1);
+        userStorage.splice(userIndex, 1);
         response.send('User deleted');
     }
     else {
