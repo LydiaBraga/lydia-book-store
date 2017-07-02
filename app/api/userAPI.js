@@ -13,7 +13,7 @@ let userStorage = [
         password: "12345"
     },
     {
-        id: 0,
+        id: 1,
         name: "Chris Lima",
         email: "chris_awake@hotmail.com",
         cpf: "104.856.386-35",
@@ -23,7 +23,7 @@ let userStorage = [
         password: "LydiaAmor"
     },
     {
-        id: 0,
+        id: 2,
         name: "Ana Letícia",
         email: "ana.chavi@hotmail.com",
         cpf: "108.478.856-29",
@@ -40,6 +40,17 @@ router.get('/', (request, response) => {
 
 router.get('/:id', (request, response) => {
     let user = userStorage.find(user => user.id == request.params.id);
+
+    if (user) {
+        response.json(user);
+    } else {
+        response.status(404).send('Not Found!');
+    }    
+});
+
+router.post('/login', (request, response) => {
+    let user = userStorage.find(user =>
+        user.email == request.body.email && user.password == request.body.password);
 
     if (user) {
         response.json(user);

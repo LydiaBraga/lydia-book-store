@@ -12,6 +12,7 @@
   "author": "Lydia Braga",
   "license": "MIT",
   "dependencies": {
+    "angular": "^1.6.4",
     "body-parser": "^1.17.2",
     "express": "^4.15.3"
   }

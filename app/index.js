@@ -5,7 +5,13 @@ const bodyParser = require('body-parser');
 // setup
 const app = express();
 app.use(bodyParser.json());
-// app.use(express.static('public'));
+app.use(express.static('public'));
+
+// init
+app.get('/', (request, response) => {
+    response.redirect('./public/index.html')
+})
+
 
 // User API
 app.use('/api/users', require('./api/userAPI'));
