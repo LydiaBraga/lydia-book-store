@@ -1,0 +1,19 @@
+{
+  "name": "lydia-book-store",
+  "version": "1.0.0",
+  "description": "Book Store",
+  "config": {
+    "host": "localhost",
+    "port": 8080
+  },
+  "scripts": {
+    "start": "node ./app/index"
+  },
+  "author": "Lydia Braga",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "useful-string": "0.0.2"
+  }
+}
