@@ -1,18 +1,21 @@
 angular.module('app.UserController',[])
 
-.controller('UserController', function ($scope, UserService) {
-    function list() {
+.controller('UserController', function ($rootScope, $scope, $location, UserService) {
+    $rootScope.activetab = $location.path();
+
+    $scope.user = {};
+
+    $scope.list = function() {
         UserService.list().then(response => {
             console.log(response.data)
             $scope.users = response.data;
         });
     }
-    list();
 
     $scope.save = function () {
-        UserService.save($scope.newSubscriber).then(response => {
+        UserService.save($scope.user).then(response => {
             $scope.newUser = {};
-            list();
+            console.log(response.data);
         });
     }
 
@@ -33,18 +36,5 @@ angular.module('app.UserController',[])
         UserService.get(id).then(response => {
             $scope.newUser = angular.copy(response.data);
         });
-    }
-
-    $scope.login = function() {
-        if ($scope.userEmail && $scope.userPassword) {
-            let credentials = {
-                email: $scope.userEmail,
-                password: $scope.userPassword
-            };
-
-            UserService.login(credentials).then(response => {
-                console.log(response.data);
-            });
-        }
     }
 });

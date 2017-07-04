@@ -1,0 +1,102 @@
+.top {
+    position: relative;
+    background-color: #ffffff;
+    height: 80px;
+    padding-top: 10px;
+    line-height: 50px;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.top .title {
+    font-size: 2.5em;
+}
+
+.content {
+    position: relative;
+    height: 100%;
+}
+
+.navbar-inverse, .navbar-inverse ul {
+	background: gray;
+	border: 0;
+}
+
+.navbar-inverse .navbar-nav li a {
+	color: #f7f7f7;
+}
+
+.navbar-inverse .navbar-nav li a:hover {
+	background-color: rgba(255,255,255,0.2);
+}
+
+
+.navbar-inverse .navbar-brand:hover:hover {
+    color: white;
+}
+
+.navbar {
+    margin-bottom: -20px;
+}
+
+.search {
+    margin-top: 9px;
+    margin-left: 241px;;
+}
+
+.search input[type="text"] {
+    width: 600px;
+}
+
+.side-bar-custom {
+    position: absolute;
+    top: 130px;
+    width: 200px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: #f1f1f1;
+}
+
+.side-bar-custom li a {
+    text-decoration: none;
+    text-indent: 40px;
+    line-height: 40px;
+    display: block;
+    color:black;
+}
+
+.side-bar-custom li a:hover {
+    color: white;
+    background-color: gray;
+}
+
+.contact {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 0;
+    padding-top: 100px;
+}
+
+.contact img {
+    height: 64px;
+    width: 64px;
+}
+
+.form-user fieldset {
+    position: absolute;
+    text-align: center;
+    margin-left: 200px;
+    padding-top: 50px;
+}
+
+.form-user fieldset input {
+    width: 600px;
+}
+
+.form-user fieldset button {
+    width: 200px;
+    margin-left: 386px;
+}

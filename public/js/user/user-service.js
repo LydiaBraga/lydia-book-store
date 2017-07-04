@@ -19,10 +19,6 @@ angular.module('app.UserService',[])
         return $http.delete('/api/users/' + id)
     }
 
-    service.login = function(credentials) {
-        return $http.post('/api/users/login', credentials);
-    }
-
     service.list = function () {
         return $http.get('/api/users')
     }

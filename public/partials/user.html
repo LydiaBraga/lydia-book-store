@@ -1,0 +1,60 @@
+<form class="form-user">
+    <fieldset>
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="inputName">Nome</label>
+            <div class="col-md-8">
+                <input id="inputName" type="text" ng-model="user.name" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="inputEmail">E-mail</label>
+            <div class="col-md-8">
+                <input id="inputEmail" type="text" ng-model="user.email" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="inputCpf">CPF</label>
+            <div class="col-md-8">
+                <input id="inputCpf" type="text" ng-model="user.cpf" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="inputAddress">Endereço</label>
+            <div class="col-md-8">
+                <input id="inputAddress" type="text" ng-model="user.address" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="inputNumber">Número</label>
+            <div class="col-md-8">
+                <input id="inputNumber" type="text" ng-model="user.number" required>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="inputNeighborhood">Bairro</label>
+            <div class="col-lg-8">
+                <input id="inputNeighborhood" type="text" ng-model="user.neighborhood" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="inputPassword">Senha</label>
+            <div class="col-md-8">
+                <input id="inputPassword" type="password" ng-model="user.password" required>
+            </div>
+        </div>
+
+        <div class="form-group"> 
+            <label class="col-md-4 control-label" for="inputPasswordConfirmation">Repita a Senha</label>
+            <div class="col-md-8">    
+                <input id="inputPasswordConfirmation" type="password" ng-model="user.passwordConfirmation" required>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="button" ng-click="save()">Salvar</button>
+    </fieldset>
+</form>
