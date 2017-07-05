@@ -8,13 +8,12 @@ angular.module('app', [
 
 .config(['$routeProvider', function($routeProvider) {
    $routeProvider
-        .when('/user', {
-            templateUrl: '/partials/user.html',
-            controller: 'UserController'
+        .when('/home', {
+            templateUrl: '/partials/home.html',
         })
 
-        .when('/login', {
-            templateUrl: '/partials/login.html',
+        .when('/user', {
+            templateUrl: '/partials/user.html',
             controller: 'UserController'
         })
 
@@ -22,6 +21,6 @@ angular.module('app', [
             templateUrl: '/partials/contact.html'
         })
 
-        .otherwise ({ redirectTo: '/user' });
+        .otherwise ({ redirectTo: '/home' });
 
 }]);

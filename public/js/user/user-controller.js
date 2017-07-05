@@ -1,22 +1,22 @@
 angular.module('app.UserController',[])
 
-.controller('UserController', function ($rootScope, $scope, $location, UserService) {
-    $rootScope.activetab = $location.path();
+.controller('UserController', function ($rootScope, $scope, UserService) {
 
     $scope.user = {};
 
-    $scope.list = function() {
-        UserService.list().then(response => {
-            console.log(response.data)
-            $scope.users = response.data;
-        });
-    }
-
     $scope.save = function () {
-        UserService.save($scope.user).then(response => {
-            $scope.newUser = {};
-            console.log(response.data);
-        });
+        if (isUserPresent()) {
+            if ($scope.user.id) {
+                    UserService.put($scope.user).then(response => {
+                        $scope.user = {};
+                    });
+                
+            } else {
+                UserService.save($scope.user).then(response => {
+                    $scope.user = {};
+                });
+            }
+        }        
     }
 
     $scope.delete = function (id) {
@@ -26,15 +26,19 @@ angular.module('app.UserController',[])
         });
     }
 
-    $scope.edit = function (id) {
+    $scope.getById = function (id) {
         UserService.get(id).then(response => {
             $scope.newUser = angular.copy(response.data);
         });
     }
 
-    $scope.getById = function (id) {
-        UserService.get(id).then(response => {
-            $scope.newUser = angular.copy(response.data);
-        });
+    var isUserPresent = function() {
+        return $scope.user.name
+            && $scope.user.email
+            && $scope.user.cpf
+            && $scope.user.address
+            && $scope.user.number
+            && $scope.user.neighborhood
+            && $scope.user.password;
     }
 });

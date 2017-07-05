@@ -1,7 +1,8 @@
 angular.module('app.LoginController',[])
 
-.controller('LoginController', function ($rootScope, $scope, $location, LoginService) {
-    $rootScope.activetab = $location.path();
+.controller('LoginController', function ($rootScope, $scope, LoginService) {
+    $scope.logged = JSON.parse(window.localStorage.getItem("userLogged")) || false;
+    $scope.errorLogin = false;
 
     $scope.login = function() {
         if ($scope.userEmail && $scope.userPassword) {
@@ -11,8 +12,24 @@ angular.module('app.LoginController',[])
             };
 
             LoginService.login(credentials).then(response => {
-                console.log(response.data);
+                window.localStorage.setItem("userLogged", JSON.stringify(response.data));
+                $scope.logged = true;
+                cleanInputs();
+            }, response => {
+                window.localStorage.removeItem("userLogged");
+                $scope.errorLogin = true;
+                cleanInputs();
             });
         }
+    }
+
+    $scope.logout = function() {
+        $scope.logged = false;
+        window.localStorage.removeItem("userLogged");
+    }
+
+    var cleanInputs = function() {
+         $scope.userEmail = "";
+         $scope.userPassword = "";
     }
 });

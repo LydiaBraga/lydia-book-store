@@ -1,7 +1,34 @@
-<form>
-    <fieldset>
-        <input id="userEmail" type="text" placeholder="E-mail" ng-model="userEmail">
-        <input id="userPwd" type="password" placeholder="Senha" ng-model="userPassword">
-        <button type="button" ng-click="login()">Entrar</button>
-    </fieldset>
-</form>
+<div ng-controller="LoginController">
+    <div ng-show="!logged">
+        <form class="form-login well">
+            <div class="col-md-8">
+                <div class="form-group">
+                    <input id="userEmail" type="text" placeholder="E-mail" ng-model="userEmail"
+                        ng-class="{'login-error': errorLogin}">
+                </div>
+                <div class="form-group">
+                    <input id="userPwd" type="password" placeholder="Senha" ng-model="userPassword"
+                        ng-class="{'login-error': errorLogin}">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group actions">
+                    <button class="btn btn-primary" type="button" ng-click="login()">Entrar</button>
+                    <a href="#!/user">Criar uma conta</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="form-logged well">
+        <div class="actions">
+            <div class="form-inline">
+                <span class="glyphicon glyphicon-user"></span>
+                <a href="#!/user">Editar dados pessoais</a>
+            </div>
+            <div class="form-inline">
+                <span class="glyphicon glyphicon-log-out"></span>
+                <span id="logout" ng-click="logout()">Sair</span>
+            </div>
+        </div>
+    </div>
+</div>

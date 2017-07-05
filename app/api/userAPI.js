@@ -76,7 +76,7 @@ router.post('/', (request, response) => {
     response.status(201).json(newUser);
 });
 
-router.put('/:id', (request, response) => {
+router.put('/', (request, response) => {
     var user = userStorage.find(user => user.id == request.params.id);
     if (user) {
         user.name = request.body.name || user.name;

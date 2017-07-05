@@ -3,7 +3,6 @@
     background-color: #ffffff;
     height: 80px;
     padding-top: 10px;
-    line-height: 50px;
     overflow: hidden;
     z-index: 2;
 }
@@ -18,7 +17,7 @@
 }
 
 .navbar-inverse, .navbar-inverse ul {
-	background: gray;
+	background: #909090;
 	border: 0;
 }
 
@@ -69,10 +68,12 @@
 
 .side-bar-custom li a:hover {
     color: white;
-    background-color: gray;
+    background-color: #909090;
 }
 
 .contact {
+    position: absolute;
+    left: 575px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -83,6 +84,12 @@
 .contact img {
     height: 64px;
     width: 64px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border: solid 1px #286090;
+  box-shadow: 0 0 4px 1px #286090;
 }
 
 .form-user fieldset {
@@ -99,4 +106,56 @@
 .form-user fieldset button {
     width: 200px;
     margin-left: 386px;
+}
+
+.form-login {
+    float: right;
+    display: block;
+    width: 330px;
+    height: 65px;
+    font-size: 0.8em;
+    padding: 5px 5px;
+}
+
+.form-login .actions {
+    margin: 6px 0px;
+}
+
+.form-login .form-group {
+    margin-bottom: 5px;
+}
+
+.form-login button {
+    font-size: 1em;
+    padding: 3px 12px;
+    margin: 0px 11px;
+}
+
+.form-login input {
+    width: 200px;
+}
+
+.login-error {
+    border: 2px solid red;
+}
+
+.form-logged {
+    float: right;
+    display: block;
+    width: 330px;
+    height: 65px;
+    padding: 5px 5px;
+}
+
+.form-logged .actions {
+     margin: 9px 80px;
+}
+
+#logout {
+    color: #337ab7;
+}
+
+#logout:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
