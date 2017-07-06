@@ -3,16 +3,24 @@ angular.module('app', [
     'app.UserController',
     'app.UserService',
     'app.LoginController',
-    'app.LoginService'
+    'app.LoginService',
+    'app.BooksService',
+    'app.BooksController'
 ])
 
 .config(['$routeProvider', function($routeProvider) {
    $routeProvider
         .when('/home', {
             templateUrl: '/partials/home.html',
+            controller: 'BooksController'
         })
 
         .when('/user', {
+            templateUrl: '/partials/user.html',
+            controller: 'UserController'
+        })
+
+        .when('/user/edit', {
             templateUrl: '/partials/user.html',
             controller: 'UserController'
         })
