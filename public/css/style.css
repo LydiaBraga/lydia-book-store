@@ -105,7 +105,14 @@ input[type="password"]:focus {
 
 .form-user fieldset button {
     width: 200px;
+}
+
+.form-user .actionsForSave {
     margin-left: 386px;
+}
+
+.form-user .actionsForEdit {
+    margin-left: 320px;
 }
 
 .form-login {

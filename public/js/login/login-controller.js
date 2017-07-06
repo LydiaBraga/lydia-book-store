@@ -1,7 +1,7 @@
 angular.module('app.LoginController',[])
 
 .controller('LoginController', function ($rootScope, $scope, LoginService) {
-    $scope.logged = JSON.parse(window.localStorage.getItem("userLogged")) || false;
+    $scope.logged = LoginService.getLoginFromLocalStorage();
     $scope.errorLogin = false;
 
     $scope.login = function() {
@@ -12,11 +12,12 @@ angular.module('app.LoginController',[])
             };
 
             LoginService.login(credentials).then(response => {
-                window.localStorage.setItem("userLogged", JSON.stringify(response.data));
+                LoginService.saveLoginInLocalStorage(response.data);
                 $scope.logged = true;
                 cleanInputs();
+                window.location.href = "#!/home";
             }, response => {
-                window.localStorage.removeItem("userLogged");
+                LoginService.removeLoginFromLocalStorage(response.data);
                 $scope.errorLogin = true;
                 cleanInputs();
             });
@@ -26,6 +27,7 @@ angular.module('app.LoginController',[])
     $scope.logout = function() {
         $scope.logged = false;
         window.localStorage.removeItem("userLogged");
+        window.location.href = "#!/home";
     }
 
     var cleanInputs = function() {

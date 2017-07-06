@@ -1,19 +1,39 @@
 angular.module('app.UserController',[])
 
-.controller('UserController', function ($rootScope, $scope, UserService) {
+.controller('UserController', function ($rootScope, $scope, $window,
+    UserService, LoginService) {
 
-    $scope.user = {};
+     var getUser = function() {
+        let userFound = LoginService.getLoginFromLocalStorage();
+        if (userFound) {
+            UserService.getById(userFound.id).then(response => {
+                LoginService.saveLoginInLocalStorage(response.data);
+                $scope.user = response.data;
+            }, response => {
+                $scope.user = {};
+            });
+        } else {
+            $scope.user = {};
+        }    
+    }
 
     $scope.save = function () {
         if (isUserPresent()) {
-            if ($scope.user.id) {
-                    UserService.put($scope.user).then(response => {
+            if ($scope.isEdit()) {
+                    UserService.edit($scope.user).then(response => {
                         $scope.user = {};
-                    });
-                
+                        window.alert("Usuário editado!");
+                        window.location.href = "#!/home";
+                     }, response => {
+                         window.alert("Erro ao editar usuário!");
+                     });
             } else {
                 UserService.save($scope.user).then(response => {
                     $scope.user = {};
+                    window.alert("Usuário cadastrado!");
+                    window.location.href = "#!/home";
+                }, response => {
+                    window.alert("Erro ao cadastrar usuário!");
                 });
             }
         }        
@@ -21,15 +41,14 @@ angular.module('app.UserController',[])
 
     $scope.delete = function (id) {
         UserService.delete(id).then(response => {
-            $scope.newUser = {};
-            list();
+            $scope.user = {};
+        }, response => {
+            window.alert("Erro ao deletar usuário!");
         });
     }
 
-    $scope.getById = function (id) {
-        UserService.get(id).then(response => {
-            $scope.newUser = angular.copy(response.data);
-        });
+    $scope.isEdit = function() {
+        return $scope.user && (typeof $scope.user.id !== "undefined");
     }
 
     var isUserPresent = function() {
@@ -41,4 +60,7 @@ angular.module('app.UserController',[])
             && $scope.user.neighborhood
             && $scope.user.password;
     }
+
+    getUser();
+
 });

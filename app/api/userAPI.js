@@ -77,7 +77,7 @@ router.post('/', (request, response) => {
 });
 
 router.put('/', (request, response) => {
-    var user = userStorage.find(user => user.id == request.params.id);
+    var user = userStorage.find(user => user.id == request.body.id);
     if (user) {
         user.name = request.body.name || user.name;
         user.email = request.body.email || user.email;
