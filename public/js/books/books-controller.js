@@ -9,5 +9,5 @@ angular.module('app.BooksController',[])
         });    
     }
 
-    getBooks()
+    getBooks();
 });

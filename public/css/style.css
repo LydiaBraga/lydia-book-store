@@ -1,3 +1,8 @@
+body, html {
+    width: 100%;
+    height: 100%;
+}
+
 .top {
     position: relative;
     background-color: #ffffff;
@@ -12,7 +17,7 @@
 }
 
 .content {
-    position: relative;
+    left: 200px;
     height: 100%;
 }
 
@@ -165,4 +170,14 @@ input[type="password"]:focus {
 #logout:hover {
     cursor: pointer;
     text-decoration: underline;
+}
+
+.books-list {
+    margin-left: 200px;
+    padding-top: 33px;
+}
+
+.books-list img {
+    width: 150px;
+    height: 225px;
 }

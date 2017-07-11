@@ -1,13 +1,15 @@
-<div class="row">
+<div class="books-list row">
     <div ng-repeat="book in books">
         <div class="col-sm-4 col-lg-4 col-md-4">
             <div class="thumbnail">
-                <img src="http://placehold.it/320x150" alt="">
+                <img ng-src="{{book.image}}" alt="book.name">
                 <div class="caption">
                     <span class="pull-right">R$ {{book.price}}</span>
                     <span><a href="#">{{book.name}}</a></span>
                 </div>
-                <button class="btn btn-primary" type="button">Comprar</button>
+                <div class="caption">
+                    <button class="center-block btn btn-primary" type="button">Comprar</button>
+                </div>
             </div>
         </div>
     </div>
