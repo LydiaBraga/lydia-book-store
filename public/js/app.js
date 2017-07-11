@@ -5,7 +5,8 @@ angular.module('app', [
     'app.LoginController',
     'app.LoginService',
     'app.BooksService',
-    'app.BooksController'
+    'app.BooksController',
+    'app.GenderController'
 ])
 
 .config(['$routeProvider', function($routeProvider) {
