@@ -1,4 +1,5 @@
 const express = require('express');
+const _ = require('lodash');
 const router = express.Router();
 
 let bookStorage = [
@@ -173,7 +174,7 @@ router.get('/', (request, response) => {
     response.json(bookStorage);
 });
 
-router.get('/:id', (request, response) => {
+router.get('/book/:id', (request, response) => {
     let book = bookStorage.find(book => book.id == request.params.id);
 
     if (book) {
@@ -181,6 +182,14 @@ router.get('/:id', (request, response) => {
     } else {
         response.status(404).send('Not Found!');
     }    
+});
+
+router.get('/genders', (request, response) => {
+    let genders = [];
+    bookStorage.forEach(function(book) {
+        genders.push(book.gender);
+    });
+    response.json(_.uniq(genders));
 });
 
 router.get('/gender/:gender', (request, response) => {

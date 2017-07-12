@@ -6,7 +6,7 @@ angular.module('app', [
     'app.LoginService',
     'app.BooksService',
     'app.BooksController',
-    'app.GenderController'
+    'app.BookDetailsController'
 ])
 
 .config(['$routeProvider', function($routeProvider) {
@@ -24,6 +24,11 @@ angular.module('app', [
         .when('/user/edit', {
             templateUrl: '/partials/user.html',
             controller: 'UserController'
+        })
+
+        .when('/book-details', {
+            templateUrl: '/partials/bookDetails.html',
+            controller: 'BookDetailsController'
         })
 
         .when('/contact', {

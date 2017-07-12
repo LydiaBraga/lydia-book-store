@@ -1,5 +1,7 @@
-<div ng-controller="GenderController">
+<div ng-controller="BooksController">
     <ul class="side-bar-custom">
-        <li ng-repeat="gender in genders"><a href="#">{{gender}}</a></li>
+        <li ng-repeat="gender in genders">
+            <span ng-click="filterByGender(gender)">{{gender}}</span>
+        </li>
     </ul>
 </div>

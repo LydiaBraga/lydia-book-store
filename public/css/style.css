@@ -63,7 +63,7 @@ body, html {
     background-color: #f1f1f1;
 }
 
-.side-bar-custom li a {
+.side-bar-custom li span {
     text-decoration: none;
     text-indent: 40px;
     line-height: 40px;
@@ -71,8 +71,9 @@ body, html {
     color:black;
 }
 
-.side-bar-custom li a:hover {
+.side-bar-custom li span:hover {
     color: white;
+    cursor: pointer;
     background-color: #909090;
 }
 
