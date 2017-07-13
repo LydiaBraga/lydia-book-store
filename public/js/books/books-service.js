@@ -19,5 +19,9 @@ angular.module('app.BooksService',[])
         return $http.get('/api/books/gender/' + gender);
     }
 
+    service.getBookById = function(id) {
+        return $http.get('/api/books/book/' + id);
+    }
+
     return service;
 });

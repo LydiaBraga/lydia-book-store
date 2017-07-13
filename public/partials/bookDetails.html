@@ -1,9 +1,26 @@
-<div class="col-md-9">
-    <div class="thumbnail">
-        <img class="img-responsive" src="book.image" alt="">
-        <div class="caption-full">
-            <h4 class="pull-right">{{book.price}}</h4>
-            <h4><a href="#">{{book.name}}</a>
+<div class="bookDetails">
+    <div class="thumbnail col-md-4">
+        <img class="img-responsive" src="{{book.image}}" alt="{{book.name}}">
+        <div class="caption-full text-center">
+            <h4>{{book.name}}<h4>
+            <h4>R$ {{book.price}}</h4>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div>
+            <h4 class="caption-full">Ficha Técnica</h4>
+            <p><span>Autor: </span>{{book.author}}</p>
+            <p><span>Ano: </span>{{book.year}}</p>
+            <p><span>Editora: </span>{{book.publishingHouse}}</p>
+            <p><span>Gênero: </span>{{book.gender}}</p>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <h4 class="caption-full">Sinopse</h4>
+        <p>{{book.synopsis}}</p>
+        <div class="pull-right">
+            <button class="btn btn-primary" type="button">Comprar</button>
         </div>
     </div>
 </div>

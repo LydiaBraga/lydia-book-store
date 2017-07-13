@@ -63,7 +63,7 @@ body, html {
     background-color: #f1f1f1;
 }
 
-.side-bar-custom li span {
+.side-bar-custom li a {
     text-decoration: none;
     text-indent: 40px;
     line-height: 40px;
@@ -71,7 +71,7 @@ body, html {
     color:black;
 }
 
-.side-bar-custom li span:hover {
+.side-bar-custom li a:hover {
     color: white;
     cursor: pointer;
     background-color: #909090;
@@ -181,4 +181,22 @@ input[type="password"]:focus {
 .books-list img {
     width: 150px;
     height: 225px;
+}
+
+.bookDetails {
+    padding: 33px;
+    margin-left: 200px;
+}
+
+.bookDetails img {
+    width: 225px;
+    height: 338px;
+}
+
+.bookDetails p span {
+    font-weight: bold;
+}
+
+.bookDetails button {
+    width: 150px;
 }

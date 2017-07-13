@@ -5,7 +5,7 @@
                 <img ng-src="{{book.image}}" alt="book.name">
                 <div class="caption">
                     <span class="pull-right">R$ {{book.price}}</span>
-                    <span><a href="#">{{book.name}}</a></span>
+                    <span><a ng-href="#!/book-details/{{book.id}}">{{book.name}}</a></span>
                 </div>
                 <div class="caption">
                     <button class="center-block btn btn-primary" type="button">Comprar</button>

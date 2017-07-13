@@ -1,6 +1,6 @@
 angular.module('app.BooksController',[])
 
-.controller('BooksController', function ($rootScope, $scope, BooksService) {
+.controller('BooksController', function ($rootScope, $scope, $routeParams, BooksService) {
     $rootScope.books = [];
     $scope.genders = [];
 
@@ -21,14 +21,17 @@ angular.module('app.BooksController',[])
         });    
     }
 
-    $scope.filterByGender = function(gender) {
-        BooksService.getBooksByGender(gender).then(response => {
-            $rootScope.books = response.data;
-        }, response => {
-            $rootScope.books = [];
-        })
+    var filterByGender = function() {
+        if ($routeParams.gender) {
+            BooksService.getBooksByGender($routeParams.gender).then(response => {
+                $rootScope.books = response.data;
+            }, response => {
+                $rootScope.books = [];
+            });
+        }
     }
 
     getBooks();
     getGenders();
+    filterByGender();
 });
