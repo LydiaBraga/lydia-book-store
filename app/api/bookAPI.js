@@ -174,7 +174,7 @@ router.get('/', (request, response) => {
     response.json(bookStorage);
 });
 
-router.get('/book/:id', (request, response) => {
+router.get('/search/book/:id', (request, response) => {
     let book = bookStorage.find(book => book.id == request.params.id);
 
     if (book) {
@@ -192,7 +192,7 @@ router.get('/genders', (request, response) => {
     response.json(_.uniq(genders));
 });
 
-router.get('/gender/:gender', (request, response) => {
+router.get('/search/gender/:gender', (request, response) => {
     let books = bookStorage.filter(book => book.gender == request.params.gender);
 
     if (books) {
@@ -202,15 +202,17 @@ router.get('/gender/:gender', (request, response) => {
     }    
 });
 
-router.delete('/:id', (request, response) => {
-    var bookIndex = bookStorage.findIndex(book => book.id == request.params.id);
-    if (bookIndex != -1) {
-        bookStorage.splice(bookIndex, 1);
-        response.send('Book was removed from stock!');
-    }
-    else {
-        response.status(404).send('Not found!');
-    }
+router.get('/search/all/:searchValue', (request, response) => {
+    let books = bookStorage.filter(book => 
+        _.includes(book.name.toLowerCase(), request.params.searchValue.toLowerCase())
+        || _.includes(book.author.toLowerCase(), request.params.searchValue.toLowerCase())
+    );
+
+    if (books) {
+        response.json(books);
+    } else {
+        response.status(404).send('Not Found!');
+    }    
 });
 
 module.exports = router;

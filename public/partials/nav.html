@@ -1,15 +1,19 @@
-<nav class="navbar navbar-inverse navbar-static-top">
-	<div class="container">
-		<div class="col-md-8 search">
-			<form>
-				<input type="text" placeholder="Qual livro você está procurando?"></input>
-				<button class="btn btn-primary" type="button">Procurar</button>
-			</form>
+<div ng-controller="BooksController">
+	<nav class="navbar navbar-inverse navbar-static-top">
+		<div class="container">
+			<div class="col-md-8 search">
+				<form>
+					<input type="text" ng-model="searchValue" placeholder="Qual livro você está procurando?"></input>
+					<a class="btn btn-primary" ng-href="#!/home/books/search/all/{{searchValue}}">
+    					<span>Procurar</span>
+					</a>
+				</form>
+			</div>
+			<div class="col-md-4 collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#!/contact">Contato</a></li>
+				</ul>
+			</div>
 		</div>
-		<div class="col-md-4 collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#!/contact">Contato</a></li>
-			</ul>
-		</div>
-	</div>
-</nav>
+	</nav>
+</div>

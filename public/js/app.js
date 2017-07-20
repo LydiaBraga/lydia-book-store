@@ -16,7 +16,12 @@ angular.module('app', [
             controller: 'BooksController'
         })
 
-        .when('/home/books/:gender', {
+        .when('/home/books/search/gender/:gender', {
+            templateUrl: '/partials/home.html',
+            controller: 'BooksController'
+        })
+
+        .when('/home/books/search/all/:searchValue', {
             templateUrl: '/partials/home.html',
             controller: 'BooksController'
         })

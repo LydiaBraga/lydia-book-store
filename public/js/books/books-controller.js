@@ -21,17 +21,25 @@ angular.module('app.BooksController',[])
         });    
     }
 
-    var filterByGender = function() {
+    var searchBooks = function() {
         if ($routeParams.gender) {
             BooksService.getBooksByGender($routeParams.gender).then(response => {
                 $rootScope.books = response.data;
             }, response => {
                 $rootScope.books = [];
             });
+        } else if ($routeParams.searchValue) {
+             BooksService.searchBooks($routeParams.searchValue).then(response => {
+                $rootScope.books = response.data;
+            }, response => {
+                $rootScope.books = [];
+            });
+        } else {
+            getBooks();
         }
     }
 
     getBooks();
     getGenders();
-    filterByGender();
+    searchBooks();
 });

@@ -16,11 +16,15 @@ angular.module('app.BooksService',[])
              return $http.get('/api/books');
         }
 
-        return $http.get('/api/books/gender/' + gender);
+        return $http.get('/api/books/search/gender/' + gender);
     }
 
     service.getBookById = function(id) {
-        return $http.get('/api/books/book/' + id);
+        return $http.get('/api/books/search/book/' + id);
+    }
+
+    service.searchBooks = function(searchValue) {
+        return $http.get('/api/books/search/all/' + searchValue);
     }
 
     return service;
