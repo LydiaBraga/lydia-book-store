@@ -8,7 +8,12 @@
                     <span><a ng-href="#!/book-details/{{book.id}}">{{book.name}}</a></span>
                 </div>
                 <div class="caption">
-                    <button class="center-block btn btn-primary" type="button">Comprar</button>
+                    <a ng-if="!logged" class="btn btn-primary center-block" ng-href="#!/purchaseWarning">
+                        <span>Comprar</span>
+                    </a>
+                    <a ng-if="logged" class="btn btn-primary center-block" ng-href="#!/purchases/{{book.id}}">
+                        <span>Comprar</span>
+                    </a>
                 </div>
             </div>
         </div>

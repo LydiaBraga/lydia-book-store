@@ -6,7 +6,9 @@ angular.module('app', [
     'app.LoginService',
     'app.BooksService',
     'app.BooksController',
-    'app.BookDetailsController'
+    'app.BookDetailsController',
+    'app.PurchaseService',
+    'app.PurchaseController'
 ])
 
 .config(['$routeProvider', function($routeProvider) {
@@ -39,6 +41,16 @@ angular.module('app', [
         .when('/book-details/:id', {
             templateUrl: '/partials/bookDetails.html',
             controller: 'BookDetailsController'
+        })
+
+        .when('/purchaseWarning', {
+            templateUrl: '/partials/purchaseWarning.html',
+            controller: 'LoginController'
+        })
+
+        .when('/purchases/:bookId', {
+            templateUrl: '/partials/shoppingCart.html',
+            controller: 'PurchaseController'
         })
 
         .when('/contact', {

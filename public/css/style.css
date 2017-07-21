@@ -183,6 +183,10 @@ input[type="password"]:focus {
     height: 225px;
 }
 
+.books-list a {
+    width: 150px;
+}
+
 .bookDetails {
     padding: 33px;
     margin-left: 200px;
@@ -197,6 +201,67 @@ input[type="password"]:focus {
     font-weight: bold;
 }
 
-.bookDetails button {
+.bookDetails a {
     width: 150px;
+}
+
+.purchase-warning {
+    margin-left: 413px;
+    margin-top: 70px;
+}
+
+.purchase-login span {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.purchase-login {
+    display: block;
+    width: 649px;
+    height: 172px;;
+    padding: 15px 5px;
+}
+
+.purchase-login button {
+    font-size: 1em;
+    padding: 3px 12px;
+    margin: 0px 11px;
+    width: 150px;
+}
+
+.purchase-login input {
+    width: 350px;
+}
+
+.purchase-login .position {
+    margin-left: 147px;
+}
+
+.purchase-login .actions {
+    margin-left: 15px;
+}
+
+.shopping-cart {
+    margin-left: 221px;
+    margin-top: 38px;
+    margin-right: 20px;
+}
+
+.shopping-cart .page-header {
+    color: #337ab7;
+    font-size: 2em;
+}
+
+.shopping-cart .page-header {
+    color: #337ab7;
+    font-size: 2em;
+}
+
+.shopping-cart .btn {
+    margin-left: 10px;
+}
+
+.shopping-cart .total {
+    font-weight: bold;
 }

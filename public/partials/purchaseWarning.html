@@ -1,0 +1,22 @@
+<div ng-controller="LoginController" class="purchase-warning">
+    <form class="purchase-login well">
+        <div class="col-md-12">
+            <span class="center-block text-center">Para comprar nossos livros, faça login ou crie uma conta!</span>
+            <div class="position">
+            <div class="form-group">
+                <input id="userEmail" type="text" placeholder="E-mail" ng-model="userEmail"
+                    ng-class="{'login-error': errorLogin}">
+            </div>
+            <div class="form-group">
+                <input id="userPwd" type="password" placeholder="Senha" ng-model="userPassword"
+                    ng-class="{'login-error': errorLogin}">
+            </div>
+
+            <div class="form-group actions">
+                <button class="btn btn-primary" type="button" ng-click="login()">Entrar</button>
+                <a href="#!/user">Criar uma conta</a>
+            </div>
+            </div>
+        </div>
+    </form>
+</div>

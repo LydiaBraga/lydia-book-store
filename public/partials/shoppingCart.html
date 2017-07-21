@@ -1,0 +1,37 @@
+<div class="shopping-cart">
+    <div class="thumbnail">
+        <div class="page-header">
+            <span class="glyphicon glyphicon-shopping-cart"></span>
+            Carrinho de Compras
+        </div>
+
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <th>Quantidade</th>
+                    <th>Livro</th>
+                    <th>Preço</th>
+                </tr>
+                <tr ng-repeat="book in booksToBuy">
+                    <td>{{book.qtd}}</td>
+                    <td>{{book.info.name}}</td>
+                    <td>{{book.info.price}}</td>
+                </tr>
+                <tr class="total">
+                    <td></td>
+                    <td>Total:</td>
+                    <td>R$ {{getTotal()}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="form-inline page-footer pull-right">
+        <a type="button" class="btn btn-primary">
+            <span>Finalizar Compra</span>
+        </a>
+        <a type="button" class="btn btn-danger">
+            <span>Cancelar Compra</span>
+        </a>
+    </div> 
+</div>
