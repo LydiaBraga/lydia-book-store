@@ -58,6 +58,23 @@ angular.module('app.PurchaseController',[])
         return total;
     }
 
+    $scope.finishPurchase = function() {
+        PurchaseService.finishPurchase($scope.purchase);
+        PurchaseService.removePurchaseFromLocalStorage();
+        window.alert("Compra Finalizada!");
+        window.location.href = "#!/home";
+    }
+
+    $scope.cancelPurchase = function() {
+        let userConfirm = window.confirm("Tem certeza que deseja cancelar a compra?");
+
+        if (userConfirm) {
+            PurchaseService.removePurchaseFromLocalStorage();
+            window.alert("Compra cancelada!");
+            window.location.href = "#!/home";
+        }
+    }
+
     init();
     populateBooksInformation();
 });

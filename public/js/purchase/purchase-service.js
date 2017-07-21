@@ -15,5 +15,9 @@ angular.module('app.PurchaseService',[])
         window.localStorage.removeItem("purchase");
     }
 
+    service.finishPurchase = function(purchase) {
+        $http.post('/api/purchases/', purchase);
+    }
+
     return service;
 });
