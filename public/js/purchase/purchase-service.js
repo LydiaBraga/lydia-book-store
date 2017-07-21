@@ -19,5 +19,10 @@ angular.module('app.PurchaseService',[])
         $http.post('/api/purchases/', purchase);
     }
 
+    service.getAllPurchases = function() {
+        return $http.get('/api/purchases/');
+    }
+
+
     return service;
 });

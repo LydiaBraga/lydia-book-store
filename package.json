@@ -13,6 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "angular": "^1.6.4",
+    "angular-google-chart": "^0.1.0",
     "angular-route": "^1.6.5",
     "body-parser": "^1.17.2",
     "bootstrap": "^3.3.7",

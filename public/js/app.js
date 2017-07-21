@@ -1,4 +1,5 @@
 angular.module('app', [
+    'googlechart',
     'ngRoute',
     'app.UserController',
     'app.UserService',
@@ -8,7 +9,8 @@ angular.module('app', [
     'app.BooksController',
     'app.BookDetailsController',
     'app.PurchaseService',
-    'app.PurchaseController'
+    'app.PurchaseController',
+    'app.PieChartController'
 ])
 
 .config(['$routeProvider', function($routeProvider) {
@@ -51,6 +53,11 @@ angular.module('app', [
         .when('/purchases/:bookId', {
             templateUrl: '/partials/shoppingCart.html',
             controller: 'PurchaseController'
+        })
+
+        .when('/bestSellers', {
+            templateUrl: '/partials/purchasePieChart.html',
+            controller: 'PieChartController'
         })
 
         .when('/contact', {
