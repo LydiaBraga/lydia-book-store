@@ -161,7 +161,7 @@ input[type="password"]:focus {
 }
 
 .form-logged .actions {
-     margin: 9px 80px;
+     margin: 9px 38px;
 }
 
 #logout {
@@ -169,6 +169,15 @@ input[type="password"]:focus {
 }
 
 #logout:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#purchase {
+    color: #337ab7;
+}
+
+#purchase:hover {
     cursor: pointer;
     text-decoration: underline;
 }
@@ -264,4 +273,10 @@ input[type="password"]:focus {
 
 .shopping-cart .total {
     font-weight: bold;
+}
+
+.pieChart-bestSellers {
+    margin-left: 250px;
+    color: #337ab7;
+    font-size: 2em;
 }

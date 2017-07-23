@@ -55,6 +55,11 @@ angular.module('app', [
             controller: 'PurchaseController'
         })
 
+        .when('/purchases/', {
+            templateUrl: '/partials/shoppingCart.html',
+            controller: 'PurchaseController'
+        })
+
         .when('/bestSellers', {
             templateUrl: '/partials/purchasePieChart.html',
             controller: 'PieChartController'

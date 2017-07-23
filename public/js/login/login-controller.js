@@ -1,6 +1,6 @@
 angular.module('app.LoginController',[])
 
-.controller('LoginController', function ($rootScope, $scope, LoginService) {
+.controller('LoginController', function ($rootScope, $scope, LoginService, PurchaseService) {
     $rootScope.logged = LoginService.getLoginFromLocalStorage();
     $scope.errorLogin = false;
 
@@ -28,6 +28,16 @@ angular.module('app.LoginController',[])
         $rootScope.logged = false;
         window.localStorage.removeItem("userLogged");
         window.location.href = "#!/home";
+    }
+
+    $scope.goToShoppingCart = function() {
+        $scope.purchase = PurchaseService.getPurchaseFromLocalStorage();
+
+        if ($scope.purchase) {
+            window.location.href = "#!/purchases";
+        } else {
+            window.alert("Seu carrinho ainda está vazio!");
+        }
     }
 
     var cleanInputs = function() {

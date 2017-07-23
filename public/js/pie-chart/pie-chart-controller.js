@@ -1,91 +1,48 @@
-angular.module('app.PieChartController',[])
+angular.module('app.PieChartController', [])
 
 .controller('PieChartController', function ($rootScope, $scope, $routeParams, PurchaseService, BooksService) {
-    var chart1 = {};
-    chart1.type = "AreaChart";
-    chart1.displayed = false;
-    chart1.data = {
-      "cols": [{
-        id: "month",
-        label: "Month",
-        type: "string"
-      }, {
-        id: "laptop-id",
-        label: "Laptop",
-        type: "number"
-      }, {
-        id: "desktop-id",
-        label: "Desktop",
-        type: "number"
-      }, {
-        id: "server-id",
-        label: "Server",
-        type: "number"
-      }, {
-        id: "cost-id",
-        label: "Shipping",
-        type: "number"
-      }],
-      "rows": [{
-        c: [{
-          v: "January"
-        }, {
-          v: 19,
-          f: "42 items"
-        }, {
-          v: 12,
-          f: "Ony 12 items"
-        }, {
-          v: 7,
-          f: "7 servers"
-        }, {
-          v: 4
-        }]
-      }, {
-        c: [{
-          v: "February"
-        }, {
-          v: 13
-        }, {
-          v: 1,
-          f: "1 unit (Out of stock this month)"
-        }, {
-          v: 12
-        }, {
-          v: 2
-        }]
-      }, {
-        c: [{
-            v: "March"
-          }, {
-            v: 24
-          }, {
-            v: 5
-          }, {
-            v: 11
-          }, {
-            v: 6
-          }
 
-        ]
-      }]
-    };
+    var populateBestSellersInformation = function () {
+        PurchaseService.getAllPurchases().then(response => {
+            let booksBought = [];
+            response.data.forEach(function (purchase) {
+                booksBought = booksBought.concat(purchase.books);
+            });
 
-    chart1.options = {
-      "title": "Sales per month",
-      "isStacked": "true",
-      "fill": 20,
-      "displayExactValues": true,
-      "vAxis": {
-        "title": "Sales unit",
-        "gridlines": {
-          "count": 10
-        }
-      },
-      "hAxis": {
-        "title": "Date"
-      }
-    };
-    $scope.myChart = chart1;
-    
-});
+            purchaseOccurrences = _.countBy(booksBought, _.identity);
+
+            $scope.bestSellersChart = {};
+            $scope.bestSellersChart.type = "PieChart";
+            $scope.bestSellersChart.displayed = false;
+            $scope.bestSellersChart.options = { 'width': 1000, 'height': 400 };
+            $scope.bestSellersChart.data = {
+                "cols": [
+                    {
+                        id: "book",
+                        label: "Book",
+                        type: "string"
+                    }, {
+                        id: "amount",
+                        label: "amount",
+                        type: "number"
+                    }
+                ],
+                "rows": []
+            };
+
+            Object.keys(purchaseOccurrences).forEach(key => {
+                BooksService.getBookById(key).then(response => {
+                    let c = [];
+                    c.push({ v: response.data.name });
+                    c.push({ v: purchaseOccurrences[key] });
+
+                    let row = { 'c': c };
+
+                    $scope.bestSellersChart.data.rows.push(row);
+                });
+            });
+        });
+    }
+
+    populateBestSellersInformation();
+  });

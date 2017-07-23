@@ -2,6 +2,31 @@ angular.module('app.PurchaseController',[])
 
 .controller('PurchaseController', function ($rootScope, $scope, $routeParams, LoginService, PurchaseService, BooksService) {
 
+    $scope.months = [
+        "Janeiro",
+        "Fevereiro",
+        "Março",
+        "Abril",
+        "Maio",
+        "Junho",
+        "Julho",
+        "Agosto",
+        "Setembro",
+        "Outubro",
+        "Novembro",
+        "Dezembro"
+    ];
+
+    $scope.years = [];
+    var calculateYears = function() {
+        var initYear = 2017;
+
+        for (let index = 0; index < 15; index++) {
+            $scope.years.push(initYear + index);        
+        }
+    }
+    calculateYears();
+
     var init = function() {
         $scope.user = LoginService.getLoginFromLocalStorage();
 
