@@ -12,6 +12,11 @@ angular.module('app.BookDetailsController',[])
         });    
     }
 
+    $scope.goToShoppingCart = function(bookId) {
+        BooksService.saveBookInLocalStorage(bookId);
+        window.location.href = "#!/purchases";
+    }
+
     getBookById();
 
 });

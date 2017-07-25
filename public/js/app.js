@@ -50,11 +50,6 @@ angular.module('app', [
             controller: 'LoginController'
         })
 
-        .when('/purchases/:bookId', {
-            templateUrl: '/partials/shoppingCart.html',
-            controller: 'PurchaseController'
-        })
-
         .when('/purchases/', {
             templateUrl: '/partials/shoppingCart.html',
             controller: 'PurchaseController'

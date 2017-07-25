@@ -1,6 +1,6 @@
 angular.module('app.PurchaseController',[])
 
-.controller('PurchaseController', function ($rootScope, $scope, $routeParams, LoginService, PurchaseService, BooksService) {
+.controller('PurchaseController', function ($rootScope, $scope, LoginService, PurchaseService, BooksService) {
 
     $scope.months = [
         "Janeiro",
@@ -32,19 +32,21 @@ angular.module('app.PurchaseController',[])
 
         if ($scope.user) {
             $scope.purchase = PurchaseService.getPurchaseFromLocalStorage();
+            let bookId = BooksService.getBookFromLocalStorage();
+            BooksService.removeBookFromLocalStorage();
 
-            if ($routeParams.bookId) {
+            if (typeof bookId !== "undefined" && bookId !== null) {
                 if (!$scope.purchase) {
                     var books = [];
                     books.push
                     $scope.purchase = {
                         user: $scope.user.id,
-                        books: [$routeParams.bookId]
+                        books: [bookId]
                     }
 
                     PurchaseService.savePurchaseInLocalStorage($scope.purchase);
                 } else {
-                    $scope.purchase.books.push($routeParams.bookId);
+                    $scope.purchase.books.push(bookId);
                     PurchaseService.savePurchaseInLocalStorage($scope.purchase);
                 }
             }

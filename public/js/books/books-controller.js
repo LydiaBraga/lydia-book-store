@@ -39,6 +39,11 @@ angular.module('app.BooksController',[])
         }
     }
 
+    $scope.goToShoppingCart = function(bookId) {
+        BooksService.saveBookInLocalStorage(bookId);
+        window.location.href = "#!/purchases";
+    }
+
     getBooks();
     getGenders();
     searchBooks();

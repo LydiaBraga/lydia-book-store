@@ -27,5 +27,17 @@ angular.module('app.BooksService',[])
         return $http.get('/api/books/search/all/' + searchValue);
     }
 
+    service.saveBookInLocalStorage = function(bookId) {
+        window.localStorage.setItem("book", JSON.stringify(bookId));
+    }
+
+    service.getBookFromLocalStorage = function() {
+        return JSON.parse(window.localStorage.getItem("book"));
+    }
+
+    service.removeBookFromLocalStorage = function() {
+        window.localStorage.removeItem("book");
+    }
+
     return service;
 });

@@ -1,19 +1,21 @@
-<div class="books-list row">
-    <div ng-repeat="book in books">
-        <div class="col-sm-4 col-lg-4 col-md-4">
-            <div class="thumbnail">
-                <img ng-src="{{book.image}}" alt="book.name">
-                <div class="caption">
-                    <span class="pull-right">R$ {{book.price}}</span>
-                    <span><a ng-href="#!/book-details/{{book.id}}">{{book.name}}</a></span>
-                </div>
-                <div class="caption">
-                    <a ng-if="!logged" class="btn btn-primary center-block" ng-href="#!/purchaseWarning">
-                        <span>Comprar</span>
-                    </a>
-                    <a ng-if="logged" class="btn btn-primary center-block" ng-href="#!/purchases/{{book.id}}">
-                        <span>Comprar</span>
-                    </a>
+<div class="scrollbar">
+    <div class="books-list row">
+        <div ng-repeat="book in books">
+            <div class="col-sm-4 col-lg-4 col-md-4">
+                <div class="thumbnail">
+                    <img ng-src="{{book.image}}" alt="book.name">
+                    <div class="caption">
+                        <span class="pull-right">R$ {{book.price}}</span>
+                        <span><a ng-href="#!/book-details/{{book.id}}">{{book.name}}</a></span>
+                    </div>
+                    <div class="caption">
+                        <a ng-if="!logged" class="btn btn-primary center-block" ng-href="#!/purchaseWarning">
+                            <span>Comprar</span>
+                        </a>
+                        <button ng-if="logged" class="btn btn-primary center-block" ng-click="goToShoppingCart(book.id)">
+                            Comprar
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
