@@ -1,0 +1,38 @@
+<div ng-show="hasOrders" class="shopping-cart">
+    <div class="thumbnail">
+        <div class="page-header">
+            <span class="glyphicon glyphicon-shopping-cart"></span>
+            Meus pedidos
+        </div>
+
+        <div ng-repeat="purchase in purchases track by $index">
+            <span class="center-block text-center trackOrderTitle">$ {{purchase.status}}</span>  
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <th>Quantidade</th>
+                        <th>Livro</th>
+                        <th>Preço</th>
+                    </tr>
+                    <tr ng-repeat="book in purchase.booksToBuy">
+                        <td>{{book.qtd}}</td>
+                        <td>{{book.info.name}}</td>
+                        <td>{{book.info.price}}</td>
+                    </tr>
+                    <tr class="total">
+                        <td></td>
+                        <td>Total:</td>
+                        <td>R$ {{getTotal(purchase.booksToBuy)}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div> 
+    </div>
+</div>
+
+{{hasOrders}}
+<div ng-show="!hasOrders" class="shopping-cart">
+    <div class="page-header center-block text-center">
+        Você não fez nenhum pedido!
+    </div>
+</div>

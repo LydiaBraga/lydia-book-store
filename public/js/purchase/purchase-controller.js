@@ -77,6 +77,7 @@ angular.module('app.PurchaseController',[])
     $scope.finishPurchase = function() {
         if (PurchaseService.validatePaymentData($scope.payment)) {
             $scope.purchase.payment = $scope.payment;
+            $scope.purchase.status = "Pagamento em confirmação";
             PurchaseService.finishPurchase($scope.purchase);
             PurchaseService.removePurchaseFromLocalStorage();
             window.alert("Compra Finalizada!");

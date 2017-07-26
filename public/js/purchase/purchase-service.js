@@ -23,6 +23,10 @@ angular.module('app.PurchaseService',[])
         return $http.get('/api/purchases/');
     }
 
+    service.getAllPurchasesByUser = function(userId) {
+        return $http.get('/api/purchases/' + userId);
+    }
+
     service.validatePaymentData = function(payment) {
         if (payment.cardNumber && payment.cardName && payment.CardOperationMonth &&
             payment.CardOperationYear && payment.cardCode && payment.installmentPayment) {

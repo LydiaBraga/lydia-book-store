@@ -10,7 +10,8 @@ angular.module('app', [
     'app.BookDetailsController',
     'app.PurchaseService',
     'app.PurchaseController',
-    'app.PieChartController'
+    'app.PieChartController',
+    'app.TrackOrderController'    
 ])
 
 .config(['$routeProvider', function($routeProvider) {
@@ -53,6 +54,11 @@ angular.module('app', [
         .when('/purchases/', {
             templateUrl: '/partials/shoppingCart.html',
             controller: 'PurchaseController'
+        })
+
+        .when("/trackOrders", {
+            templateUrl: '/partials/trackOrder.html',
+            controller: 'TrackOrderController'
         })
 
         .when('/bestSellers', {

@@ -42,6 +42,10 @@ angular.module('app.LoginController',[])
         }
     }
 
+    $scope.goToTrackOrders = function() {
+        window.location.href = "#!/trackOrders";
+    }
+
     var cleanInputs = function() {
          $scope.userEmail = "";
          $scope.userPassword = "";

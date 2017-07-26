@@ -13,7 +13,8 @@ let purchaseStorage = [
             CardOperationYear: 2018,
             cardCode: 458,
             installmentPayment: 2
-        }
+        },
+        status: "Pagamento em confirmação"
     }
 ];
 
@@ -21,11 +22,23 @@ router.get('/', (request, response) => {
     response.json(purchaseStorage);
 });
 
+router.get('/:userId', (request, response) => {
+    let purchase = purchaseStorage.filter(purchase =>purchase.user == request.params.userId);
+
+    if (purchase.length !== 0) {
+        response.json(purchase);
+    } else {
+        response.status(404).send('Not Found!');
+    }    
+});
+
 router.post('/', (request, response) => {
     let newPurchase = {
         id: purchaseStorage.length,
         books: request.body.books,
-        user: request.body.user
+        user: request.body.user,
+        payment: request.body.payment,
+        status: request.body.status
     };
 
     purchaseStorage.push(newPurchase);
