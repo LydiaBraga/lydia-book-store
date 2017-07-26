@@ -1,21 +1,10 @@
 angular.module('app.PurchaseController',[])
 
 .controller('PurchaseController', function ($rootScope, $scope, LoginService, PurchaseService, BooksService) {
+    $scope.buy = false;
 
-    $scope.months = [
-        "Janeiro",
-        "Fevereiro",
-        "Março",
-        "Abril",
-        "Maio",
-        "Junho",
-        "Julho",
-        "Agosto",
-        "Setembro",
-        "Outubro",
-        "Novembro",
-        "Dezembro"
-    ];
+    $scope.months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro",
+        "Outubro", "Novembro", "Dezembro"];
 
     $scope.years = [];
     var calculateYears = function() {
@@ -86,10 +75,16 @@ angular.module('app.PurchaseController',[])
     }
 
     $scope.finishPurchase = function() {
-        PurchaseService.finishPurchase($scope.purchase);
-        PurchaseService.removePurchaseFromLocalStorage();
-        window.alert("Compra Finalizada!");
-        window.location.href = "#!/home";
+        if (PurchaseService.validatePaymentData($scope.payment)) {
+            $scope.purchase.payment = $scope.payment;
+            PurchaseService.finishPurchase($scope.purchase);
+            PurchaseService.removePurchaseFromLocalStorage();
+            window.alert("Compra Finalizada!");
+            window.location.href = "#!/home";
+        } else {
+            window.alert("Preencha todos os dados de pagamento!");
+        }
+        
     }
 
     $scope.cancelPurchase = function() {
@@ -100,6 +95,10 @@ angular.module('app.PurchaseController',[])
             window.alert("Compra cancelada!");
             window.location.href = "#!/home";
         }
+    }
+
+    $scope.buyBooks = function() {
+        $scope.buy = true;
     }
 
     init();

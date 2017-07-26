@@ -23,6 +23,15 @@ angular.module('app.PurchaseService',[])
         return $http.get('/api/purchases/');
     }
 
+    service.validatePaymentData = function(payment) {
+        if (payment.cardNumber && payment.cardName && payment.CardOperationMonth &&
+            payment.CardOperationYear && payment.cardCode && payment.installmentPayment) {
+            return true;
+        }
+
+        return false;
+    }
+
 
     return service;
 });

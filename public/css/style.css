@@ -93,7 +93,8 @@ body, html {
 }
 
 input[type="text"]:focus,
-input[type="password"]:focus {
+input[type="password"]:focus,
+select:focus {
   border: solid 1px #286090;
   box-shadow: 0 0 4px 1px #286090;
 }
@@ -280,6 +281,14 @@ input[type="password"]:focus {
 
 .shopping-cart .total {
     font-weight: bold;
+}
+
+.shopping-cart input {
+    width: 500px;
+}
+
+.shopping-cart select {
+    width: 248px;
 }
 
 .pieChart-bestSellers {
