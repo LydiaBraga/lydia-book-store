@@ -4,33 +4,13 @@ const router = express.Router();
 let userStorage = [
     {
         id: 0,
-        name: "Lydia Braga",
-        email: "lydiaccb@hotmail.com",
-        cpf: "105.906.326-39",
-        address: "R. Dr. João Carneiro da Silva",
-        number: 103,
-        neighborhood: "Jr Santo Antonio",
-        password: "12345"
-    },
-    {
-        id: 1,
-        name: "Chris Lima",
-        email: "chris_awake@hotmail.com",
-        cpf: "104.856.386-35",
-        address: "R. Dr. João Carneiro da Silva",
-        number: 103,
-        neighborhood: "Jr Santo Antonio",
-        password: "LydiaAmor"
-    },
-    {
-        id: 2,
-        name: "Ana Letícia",
-        email: "ana.chavi@hotmail.com",
-        cpf: "108.478.856-29",
-        address: "R. Dr. João Carneiro da Silva",
-        number: 103,
-        neighborhood: "Jr Santo Antonio",
-        password: "123456"
+        name: "admin",
+        email: "admin@booksStore.com",
+        cpf: "145.566.258-39",
+        address: "Teste",
+        number: 10,
+        neighborhood: "Teste",
+        password: "admin"
     }
 ];
 
