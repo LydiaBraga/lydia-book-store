@@ -20,7 +20,6 @@ body, html {
     left: 200px;
     height: 100%;
 }
-
 .navbar-inverse, .navbar-inverse ul {
 	background: #909090;
 	border: 0;
@@ -181,13 +180,6 @@ select:focus {
 #purchase:hover {
     cursor: pointer;
     text-decoration: underline;
-}
-
-.scrollbar {
-    height: 518px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    margin-bottom: 25px;
 }
 
 .books-list {
