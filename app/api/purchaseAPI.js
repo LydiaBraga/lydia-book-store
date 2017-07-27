@@ -4,7 +4,7 @@ const router = express.Router();
 let purchaseStorage = [
     {
         id: 0,
-        books: [1, 2],
+        books: [0, 1, 2, 3, 4, 5, 6],
         user: 0,
         payment: {
             cardNumber: 458-458-458,

@@ -31,6 +31,7 @@ angular.module('app.UserController',[])
                 UserService.save($scope.user).then(response => {
                     $scope.user = {};
                     window.alert("Usuário cadastrado!");
+                    $rootScope.logged = false;
                     window.location.href = "#!/home";
                 }, response => {
                     window.alert("Erro ao cadastrar usuário!");
@@ -42,6 +43,10 @@ angular.module('app.UserController',[])
     $scope.delete = function (id) {
         UserService.delete(id).then(response => {
             $scope.user = {};
+            LoginService.removeLoginFromLocalStorage();
+            window.alert("Usuário removido!");
+            window.location.reload();
+            window.location.href = "#!/home";
         }, response => {
             window.alert("Erro ao deletar usuário!");
         });
